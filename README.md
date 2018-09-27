@@ -4,6 +4,7 @@ API para converter a placa com o formato mercosul para o formato normal de placa
 
 ## Tabela de conversão
 
+```
 0 = A
 1 = B
 2 = C
@@ -14,6 +15,7 @@ API para converter a placa com o formato mercosul para o formato normal de placa
 7 = H
 8 = I
 9 = J
+```
 
 ### Exemplo de conversão
 
