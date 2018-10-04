@@ -11,17 +11,17 @@ class ConvercaoPlaca
 
 		$validacaoPlaca = $this->conferirPlaca();
 		if ($validacaoPlaca != 'OK')
-			return $validacaoPlaca;
+			return array('erro' => 'ERRO', 'response' => $validacaoPlaca);
 
 		$isPlacaMercosul = $this->isPlacaMercosul();
 		if (!$isPlacaMercosul['RESPONSE'])
-			$this->placa;
+			return array('erro' => 'ERRO', 'response' => $this->placa);
 
 		$stringConvertida = array_search($isPlacaMercosul['VAL'], $this->tabela);
 		if ($stringConvertida === false)
-			return 'LETRA INVALIDA: ' . $isPlacaMercosul['VAL'];
+			return array('erro' => 'ERRO', 'response' => 'LETRA INVALIDA: ' . $isPlacaMercosul['VAL']);
 
-		return substr($this->placa, 0, 4) . $stringConvertida . substr($this->placa, 5, 2);
+		return array('erro' => 'OK', 'response' => substr($this->placa, 0, 4) . $stringConvertida . substr($this->placa, 5, 2));
 	}
 
 	private function conferirPlaca()
@@ -46,5 +46,6 @@ class ConvercaoPlaca
 
 }
 
-// $obj = new ConvercaoPlaca();
-// echo $obj->converterPlaca('ACI6A67');
+$obj = new ConvercaoPlaca();
+echo '<pre>';
+var_dump($obj->converterPlaca('ACI6J6'));
