@@ -19,7 +19,7 @@ class ConvercaoPlaca
 
 		$stringConvertida = array_search($isPlacaMercosul['VAL'], $this->tabela);
 		if ($stringConvertida === false)
-			return array('erro' => 'ERRO', 'response' => 'LETRA INVALIDA: ' . $isPlacaMercosul['VAL']);
+			return array('erro' => 'ERRO', 'response' => 'LETRA INVALIDA NO PADRAO MERCOSUL: ' . $isPlacaMercosul['VAL']);
 
 		return array('erro' => 'OK', 'response' => substr($this->placa, 0, 4) . $stringConvertida . substr($this->placa, 5, 2));
 	}
