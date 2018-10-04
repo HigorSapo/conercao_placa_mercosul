@@ -15,7 +15,7 @@ class ConvercaoPlaca
 
 		$isPlacaMercosul = $this->isPlacaMercosul();
 		if (!$isPlacaMercosul['RESPONSE'])
-			return array('erro' => 'ERRO', 'response' => $this->placa);
+			return array('erro' => 'OK', 'response' => $this->placa);
 
 		$stringConvertida = array_search($isPlacaMercosul['VAL'], $this->tabela);
 		if ($stringConvertida === false)
@@ -46,6 +46,6 @@ class ConvercaoPlaca
 
 }
 
-$obj = new ConvercaoPlaca();
-echo '<pre>';
-var_dump($obj->converterPlaca('ACI6J6'));
+// $obj = new ConvercaoPlaca();
+// echo '<pre>';
+// var_dump($obj->converterPlaca('ACI6J6'));
